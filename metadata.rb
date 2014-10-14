@@ -8,6 +8,7 @@ version           '1.3.5'
 recipe 'openssh', 'Installs openssh'
 recipe 'openssh::iptables', 'Set up iptables to allow SSH inbound'
 
+supports 'aix'
 supports 'arch'
 supports 'centos'
 supports 'debian'
