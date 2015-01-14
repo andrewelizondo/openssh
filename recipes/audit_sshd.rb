@@ -20,6 +20,9 @@
 # Note: for demo purposes these controls only work on RHEL-type
 # distributions (package names and such are different for Debians)
 
+# WARNING: 'controls' may change to 'control_group' in the final product
+# to match terms in the audit UI
+
 controls 'check sshd configuration' do
 
   control 'sshd package' do
