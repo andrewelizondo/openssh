@@ -20,11 +20,11 @@
 # Note: for demo purposes these controls only work on RHEL-type
 # distributions (package names and such are different for Debians)
 
-control_group 'check sshd configuration' do
+controls 'check sshd configuration' do
 
   control 'sshd package' do
     it 'should be installed' do
-      expect(package('openssh-server').to be_installed
+      expect(package('openssh-server')).to be_installed
     end
   end
 
@@ -32,7 +32,7 @@ control_group 'check sshd configuration' do
     let(:config_file) { file('/etc/ssh/sshd_config') }
     it 'should exist with the right permissions' do
       expect(config_file).to be_file
-      expect(config_file).to be_mode(0644)
+      expect(config_file).to be_mode(644)
       expect(config_file).to be_owned_by('root')
       expect(config_file).to be_grouped_into('root')
     end
