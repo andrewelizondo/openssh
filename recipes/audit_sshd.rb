@@ -37,18 +37,18 @@ controls 'check sshd configuration' do
       expect(config_file).to be_grouped_into('root')
     end
     it 'should not permit RootLogin' do
-      expect(config_file).to_not match(/^PermitRootLogin yes/)
+      expect(config_file.content).to_not match(/^PermitRootLogin yes/)
     end
     it 'should explicitly not permit PasswordAuthentication' do
-      expect(config_file).to match(/^PasswordAuthentication no/)
+      expect(config_file.content).to match(/^PasswordAuthentication no/)
     end
     it 'should force privilege separation' do
-      expect(config_file).to match(/^UsePrivilegeSeparation sandbox/)
+      expect(config_file.content).to match(/^UsePrivilegeSeparation sandbox/)
     end
 
     # Expected to fail as a demo of rule failures
     it 'should disable X11 forwarding' do
-      expect(config_file).to_not match(/^X11Forwarding yes/)
+      expect(config_file.content).to_not match(/^X11Forwarding yes/)
     end
   end
 end
